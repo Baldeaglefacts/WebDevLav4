@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+<p> Add text to a list <label for="text-box"></label><input type="text" , id="text-box">
+    <button id="add-button">Add</button>
+    <button id="clear">Clear</button>
+</p>
+
+<ul id="List-of-text"></ul>
+<script>
+
+    let addButton = document.querySelector('#add-button')
+    let inputText = document.querySelector('#text-box')
+    let list = document.querySelector('#List-of-text')
+    let clearButton = document.querySelector('#clear')
+
+    addButton.addEventListener('click', function (){
+
+        let listLength = document.getElementById("List-of-text").getElementsByTagName("li").length
+        if (listLength < 10) {
+            let newText = inputText.value
+            if (newText.length === 0) {}
+            else if (newText.length > 50) {alert('Can not add text longer than 50 characters')}
+            else {
+                let newListItem = document.createElement('li')
+                newListItem.innerHTML = newText
+                list.appendChild(newListItem)
+                inputText.value = ""
+            }
+        }
+        else {
+           alert('You can\'t have more than 10 items in the list')
+        }
+    })
+
+    clearButton.addEventListener('click', function (){
+        list.innerHTML = ""
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+<p>What is the capital of Wisconsin?</p>
+
+<button class="Wrong-answer">Bayfield</button>
+<button id="Correct-answer">Madison</button>
+<button class="Wrong-answer">Milwaukee</button>
+
+<p id="result"></p>
+
+<script>
+
+    let correctAnswerButton = document.querySelector('#Correct-answer')
+
+    let defaultButtonBackground = correctAnswerButton.style.background
+
+    let result = document.querySelector('#result')
+
+    let wrongAnswerButtons = document.querySelectorAll('.Wrong-answer')
+    wrongAnswerButtons.forEach( function (wrongAnswerButton) {
+        wrongAnswerButton.addEventListener('click',function (){
+            result.innerHTML = 'Wrong answer, try again?'
+            correctAnswerButton.style.background = defaultButtonBackground
+        })
+    })
+
+    correctAnswerButton.addEventListener('click',function (){
+        result.innerHTML = 'correct answer!'
+        correctAnswerButton.style.background = 'cyan'
+    })
+
+</script>
+
+</body>
+</html>
